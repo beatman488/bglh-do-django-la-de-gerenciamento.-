@@ -1,0 +1,1 @@
+# bglh-do-django-la-de-gerenciamento.-
