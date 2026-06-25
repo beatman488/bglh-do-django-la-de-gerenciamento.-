@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerenciar Clientes</title>
+</head>
+<body bgcolor="Lavender">
+
+    <h2>Cadastrar Novo Cliente</h2>
+    <form method="POST" action="/cadastrar/">
+        {% csrf_token %}
+        <input type="text" name="nome" placeholder="Nome do Cliente" required />
+        <input type="email" name="email" placeholder="E-mail do Cliente" required />
+        <input type="submit" value="Cadastrar" />
+    </form>
+
+    <hr>
+
+    <h2>Clientes Cadastrados</h2>
+    <table border="1" cellpadding="5">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cliente in listaDeClientes %}
+            <tr>
+                <td>{{ cliente.nome }}</td>
+                <td>{{ cliente.email }}</td>
+                <td>
+                    <a href="editarcliente.html">Editar</a> |
+                    <a href="editarcliente.html">Remover</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>

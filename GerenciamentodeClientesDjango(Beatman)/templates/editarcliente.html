@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Cliente</title>
+</head>
+<body bgcolor="Lavender">
+
+    <h1>Editar Dados do Cliente</h1>
+    <hr>
+
+    <form method="POST" action="/editarcliente/">
+        {% csrf_token %}
+
+        <input type="hidden" name="id" value="{{ cliente.id }}" />
+
+        <p>
+            <label>Nome do Cliente:</label><br>
+            <input type="text" name="nome" value="{{ cliente.nome }}" required />
+        </p>
+
+        <p>
+            <label>E-mail:</label><br>
+            <input type="email" name="email" value="{{ cliente.email }}" required />
+        </p>
+
+        <br>
+        <button type="submit">Salvar Alterações</button>
+        <a href="base.html"Cancelar e Voltar</a>
+    </form>
+
+</body>
+</html>
